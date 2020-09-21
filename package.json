@@ -1,0 +1,21 @@
+{
+  "name": "ecoleo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server --host=localhost --port=5500 --open=./app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.8.0",
+    "angular-route": "^1.8.0"
+  },
+  "devDependencies": {
+    "@unibeautify/beautifier-php-codesniffer": "^0.1.2",
+    "@unibeautify/beautifier-php-cs-fixer": "^0.4.0",
+    "unibeautify": "^0.17.1"
+  }
+}
