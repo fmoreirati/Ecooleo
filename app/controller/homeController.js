@@ -3,13 +3,13 @@ app.controller('HomeController', function ($scope) {
 
   var litrosConsumoMes = parseFloat($scope.litrosConsumoMes);
   var valorSabaoLiquido = parseFloat($scope.valorSabaoLiquido);
-  var litros = 15;
-  var total = 0;
 
-  $scope.totalGanho = function () {
-    total =  ((litrosConsumoMes * litros) * valorSabaoLiquido);
-    console.log(total);
-    return total;
+  $scope.totalGanho = 0;
+  $scope.ganhoProducao = 0;
+  $scope.lucroMedio = 0;
+
+  $scope.calculoValores = function () {
+    $scope.totalGanho = ((litrosConsumoMes * 15) * valorSabaoLiquido);
+
   };
-
 });

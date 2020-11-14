@@ -2,11 +2,10 @@
     <div class="row bg-azul p-3 rounded">
         <!-- 1° momento do aplicativo. -->
         <h2 class="text-white">Educação Ambiental na preservação do meio ambiente.</h2>
-        <p>Usando a correlação que um litro de óleo descartado corretamente deixa de poluir 20 mil litros de água
-            potável.</p>
+        <p>Usando a correlação que um litro de óleo descartado corretamente deixa de poluir 20 mil litros de água.</p>
 
         <div class="form-group col-12 col-md-6 rounded text-danger">
-            <label for="">Quantos litros de óleo de cozinha usado você descarta no lixo por mês?</label>
+            <label for="">Quanto você consome de óleo de cozinha por mês?</label>
             <input type="number" name="" ng-model="litrosDescarteMes" class="form-control" placeholder=""
                 aria-describedby="helpId" required>
             <small id="helpId" class="text-muted">Digite a quantidade em litros</small>
@@ -16,8 +15,8 @@
             <div class="alert alert-danger " ng-if="litrosDescarteMes">
                 <h3 class="alert-heading"> Sabia que...</h3>
                 <p class="">
-                    <strong>{{litrosDescarteMes | number}} litros</strong> de óleo pode
-                    poluir<strong> {{litrosDescarteMes * 20 | number}} litros</strong> de água!?
+                    <strong>{{litrosDescarteMes | number}} litro</strong> de óleo pode
+                    poluir<strong> {{litrosDescarteMes * 20 | number}} mil litro</strong> de água!
                 </p>
             </div>
         </div>
@@ -55,7 +54,7 @@
            O que acha??? -->
 
                 <div class="form-group col-12 rounded text-danger">
-                    <label for="">Quanto você consome de óleo de cozinha por mes?</label>
+                    <label for="">Quantos litros de óleo comestível você descarta por mês?</label>
                     <input type="number" name="" ng-model="litrosConsumoMes" class="form-control" placeholder=""
                         aria-describedby="helpId" min="0.00" step="0.1">
                     <small id="helpId" class="text-muted">Digite a quantidade em litros</small>
@@ -72,11 +71,11 @@
                     <div class="form-group col-12 alert alert-success">
                         <label for="">Qual o valor médio do sabão liquido, em sua região?</label>
                         <input type="number" name="" ng-model="valorSabaoLiquido" class="form-control" placeholder=""
-                            aria-describedby="helpId" min="0.00" step="0.1">
+                            aria-describedby="helpId" min="0.00" step="0.1" onkeypress="calculoValores">
                         <small id="helpId" class="text-muted">Digite o valor</small>
                     </div>
 
-                    <div class="col-12 alert alert-danger" ng-if="valorSabaoLiquido">
+                    <!-- <div class="col-12 alert alert-danger" ng-if="valorSabaoLiquido">
                         <h3 class="alert-heading"> Você pode revender e ...</h3>
                         <p class=""> Total ganho...:
                             <strong> {{ ((litrosConsumoMes * 15) *  valorSabaoLiquido) | currency: "R$"}} </strong></p>
@@ -86,6 +85,19 @@
                         </p>
                         <p class=""> Lucro médio...:
                             <strong>{{ (((litrosConsumoMes * 15) *  valorSabaoLiquido)-((litrosConsumoMes * 15) * valorSabaoLiquido) * .1 ) | currency : 'R$'}}
+                            </strong></p>
+                    </div> -->
+
+                     <div class="col-12 alert alert-danger" ng-if="valorSabaoLiquido">
+                        <h3 class="alert-heading"> Você pode revender e ...</h3>
+                        <p class=""> Total ganho...:
+                            <strong> {{ totalGanho | currency: "R$"}} </strong></p>
+                        <p class=""> Gasto produção:
+                            <strong>{{ ganhoProducao | currency : 'R$'}}
+                            </strong>
+                        </p>
+                        <p class=""> Lucro médio...:
+                            <strong>{{ lucroMedio | currency : 'R$'}}
                             </strong></p>
                     </div>
 
