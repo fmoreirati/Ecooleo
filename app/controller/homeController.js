@@ -1,9 +1,9 @@
-app.controller('HomeController', function ($scope) {
-  // Vamos imaginar que a URL acessada foi /users/rafaell
+app.controller('HomeController', function ($scope, $http) {
+
+  $http.get(urlDatabase + "acesso").then()
 
   $scope.litrosConsumoMes;
   $scope.valorSabaoLiquido;
-
   $scope.totalGanho = 0;
   $scope.gastoProducao = 0;
   $scope.lucroMedio = 0;
@@ -13,8 +13,8 @@ app.controller('HomeController', function ($scope) {
     let valorSabao = parseFloat($scope.valorSabaoLiquido);
 
     $scope.totalGanho = totalLitros * valorSabao;
-    $scope.gastoProducao = totalLitros * (percente /100) ;
-    $scope.lucroMedio =  $scope.totalGanho - $scope.gastoProducao;
+    $scope.gastoProducao = totalLitros * (percente / 100);
+    $scope.lucroMedio = $scope.totalGanho - $scope.gastoProducao;
   }
 
 });
