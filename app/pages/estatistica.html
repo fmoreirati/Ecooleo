@@ -1,11 +1,43 @@
 <section class="container">
     <div class="row bg-azul p-3 rounded">
-        <div>
-
-            <h2> Informações </h2>
-
-            <h5> Quantidade de acessos: {{ acessos }} </h5>
-
+        <div class="text-light col">
+            <h2 class="py-3"><b> Informações Estatísticas </b></h2>
+            <h5 class="card p-2 text-dark">Quantidade de acessos: <b class="text-warning">{{ acessos }}</b></h5>
         </div>
+
+        <div class="col">
+            <div class="card p-3 my-2" ng-repeat="dado in dados">
+                <div class="bg-light p-2 text-center">
+                    <h3> Resumo do mês: {{ dado.data }} </h3>
+                </div>
+                <table class="table  table-hover">
+                    <tr>
+                        <td> Litros de óleo coletados:<br>
+                            <b> {{dado.totalLitrosColetados}} </b> </td>
+                    </tr>
+                    <tr>
+                        <td> Litros de água que seriam poluida (em mil):<br>
+                            <b class="text-warning"> {{dado.totalAguaPoluida}} </b> </td>
+                    </tr>
+                    <tr>
+                        <td> Litros de produção de sabão líquido estimado:<br>
+                            <b> {{dado.totalSabaoLiquido}} </b> </td>
+                    </tr>
+                    <tr>
+                        <td> Receita estimada:<br>
+                            <b class="text-primary"> {{dado.totalReceita | currency:"R$" }} </b> </td>
+                    </tr>
+                    <tr>
+                        <td> Gasto estimado:<br>
+                            <b class="text-danger"> {{dado.totalGasto | currency:"R$" }} </b> </td>
+                    </tr>
+                    <tr>
+                        <td> Lucro estimado:<br>
+                            <b class="text-success"> {{dado.totalLucro | currency:"R$" }} </b> </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
     </div>
 </section>

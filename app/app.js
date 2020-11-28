@@ -3,10 +3,13 @@ var app = angular
     'ngRoute'
   ]);
 
-var urlDatabase = "http://localhost/ecoleo/api/";
+//var urlDatabase = "http://localhost/ecoleo/api/";
+var urlDatabase = "https://ecooleo.6te.net/api/";
 
 // Definindo Rotas
-app.config(function ($routeProvider, $locationProvider) {
+app.config(function ($routeProvider, $qProvider, $locationProvider) {
+  $qProvider.errorOnUnhandledRejections(false);
+
   $routeProvider
     .when('/', {
       templateUrl: 'app/pages/home.html',
@@ -24,4 +27,6 @@ app.config(function ($routeProvider, $locationProvider) {
     .otherwise({
       redirectTo: '/'
     });
+
+
 });
